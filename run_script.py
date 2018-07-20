@@ -5,8 +5,8 @@ from engine import learn
 import threading
 
 def printit():
-  threading.Timer(7200.0, printit).start()
   firebase_fetch()
   learn()
+  threading.Timer(7200.0, printit).start()
 
 printit()
