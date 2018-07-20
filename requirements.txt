@@ -4,3 +4,4 @@ pandas
 firebase-admin
 sklearn
 scipy
+flask-cors
