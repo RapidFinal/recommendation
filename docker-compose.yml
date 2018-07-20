@@ -17,6 +17,11 @@ services:
     volumes:
       - ./app-volume:/app/data
 
+    environment:
+      VIRTUAL_HOST: 'recommendation.jobme.teparak.me'
+      LETSENCRYPT_HOST: 'recommendation.jobme.teparak.me'
+      LETSENCRYPT_EMAIL: 'pan.teparak@gmail.com'
+
   training_data:
     build:
       context: ./
@@ -24,9 +29,3 @@ services:
     restart: on-failure
     volumes:
       - ./app-volume:/app/data
-
-
-    environment:
-      VIRTUAL_HOST: 'recommendation.jobme.teparak.me'
-      LETSENCRYPT_HOST: 'recommendation.jobme.teparak.me'
-      LETSENCRYPT_EMAIL: 'pan.teparak@gmail.com'
