@@ -1,0 +1,19 @@
+version: "3"
+
+networks:
+  reverse_proxy:
+    external:
+      name: "reverse_proxy"
+
+services:
+  recomdation:
+    build: ./
+    restart: on-failure
+    networks:
+      - reverse_proxy
+
+
+    environment:
+      VIRTUAL_HOST: 'recommendation.jobme.teparak.me'
+      LETSENCRYPT_HOST: 'recommendation.jobme.teparak.me'
+      LETSENCRYPT_EMAIL: 'pan.teparak@gmail.com'
