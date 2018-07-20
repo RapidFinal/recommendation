@@ -5,7 +5,7 @@ import csv
 import os
 
 
-FILENAME = "test_data.csv"
+FILENAME = "data/test_data.csv"
 try:
 	os.remove(FILENAME)
 except Exception as e:

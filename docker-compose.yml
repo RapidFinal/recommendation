@@ -15,9 +15,7 @@ services:
     networks:
       - reverse_proxy
     volumes:
-      - ./app-volume/test_data.csv:/app/test_data.csv
-      - ./app-volume/weights.sav:/app/weights.sav
-      - ./app-volume/list_data.sav:/app/list_data.sav
+      - ./app-volume:/app/data
 
   training_data:
     build:
@@ -25,9 +23,7 @@ services:
       dockerfile: Dockerfile.Training
     restart: on-failure
     volumes:
-      - ./app-volume/test_data.csv:/app/test_data.csv
-      - ./app-volume/weights.sav:/app/weights.sav
-      - ./app-volume/list_data.sav:/app/list_data.sav
+      - ./app-volume:/app/data
 
 
     environment:
