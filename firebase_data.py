@@ -19,7 +19,7 @@ firebase_admin.initialize_app(cred, {
 
 
 def firebase_fetch():
-	print ("Fetching ")
+	print ("Fetching ")	
 	ref = db.reference('employeeInfo')
 	category_ref = db.reference('categories')
 	tags_ref = db.reference('tags')

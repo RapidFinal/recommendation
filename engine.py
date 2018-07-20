@@ -3,11 +3,8 @@ import pickle
 
 def init():
 	data = pd.read_csv("test_data.csv")
-	data.index = data["id"]
-	# data = data.drop(columns=["id"])
 	data['subcategory'] = data["subcategory"].apply(lambda x: x.strip())
 
-	# pd.get_dummies(data_2["skill_set"]).head() # Convert type to categorical values for ease
 	data_features = pd.concat([pd.get_dummies(data[["subcategory"]]), pd.get_dummies(data[["skill_set"]]), 
 		pd.get_dummies(data[["liked"]])], axis=1)
 
