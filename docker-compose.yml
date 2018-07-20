@@ -4,6 +4,8 @@ networks:
   reverse_proxy:
     external:
       name: "reverse_proxy"
+volumes:
+  app-volume: 
 
 services:
   recomdation:
@@ -11,6 +13,16 @@ services:
     restart: on-failure
     networks:
       - reverse_proxy
+    volumes:
+      app-volume: /app
+
+  training:
+    build:
+      context: ./
+      dockerfile: Dockerfile.Training
+      restart: on-failure
+      volumes:
+        app-volume: /app
 
 
     environment:
