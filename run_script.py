@@ -10,4 +10,5 @@ def printit():
   learn()
   threading.Timer(7200.0, printit).start()
 
+print("Starting...")
 printit()
