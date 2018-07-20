@@ -9,7 +9,7 @@ FILENAME = "data/test_data.csv"
 try:
 	os.remove(FILENAME)
 except Exception as e:
-	pass
+	print(e)
 
 
 cred = credentials.Certificate('service.json')

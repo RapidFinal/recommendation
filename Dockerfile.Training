@@ -1,7 +1,8 @@
 FROM python:2.7.15
-ADD . /app
+ADD requirements.txt /app/requirements.txt
 WORKDIR /app
 RUN pip install -r requirements.txt
 RUN mkdir -p data
+ADD . .
 VOLUME /app
 CMD python run_script.py
