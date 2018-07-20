@@ -4,32 +4,30 @@ networks:
   reverse_proxy:
     external:
       name: "reverse_proxy"
-volumes:
-  app-volume:
 
 services:
   recomdation:
     build: ./
     restart: on-failure
     depends_on:
-      - training
+      - training_data
 
     networks:
       - reverse_proxy
     volumes:
-      - app-volume:/app/test_data.csv
-      - app-volume:/app/weights.sav
-      - app-volume:/app/list_data.sav
+      - ./app-volume:/app/test_data.csv
+      - ./app-volume:/app/weights.sav
+      - ./app-volume:/app/list_data.sav
 
-  training:
+  training_data:
     build:
       context: ./
       dockerfile: Dockerfile.Training
     restart: on-failure
     volumes:
-      - app-volume:/app/test_data.csv
-      - app-volume:/app/weights.sav
-      - app-volume:/app/list_data.sav
+      - ./app-volume:/app/test_data.csv
+      - ./app-volume:/app/weights.sav
+      - ./app-volume:/app/list_data.sav
 
 
     environment:
